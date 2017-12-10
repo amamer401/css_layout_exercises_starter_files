@@ -9,8 +9,6 @@ body {
 body * {
   box-sizing: border-box;
 }
-
-/* Potentially tricky: fieldset comes with default styles we must override. */
 fieldset {
   padding: 0;
   border: 0;
@@ -43,10 +41,6 @@ fieldset {
   margin: 0 auto 45px;
 }
 
-/* The button ultimately gets a different background
-color below, but it largely overlaps with email/password
-input styling, so we include it in the same style block, then
-override parts of it in its own declaration. */
 input[type="email"],
 input[type="password"],
 button[type="submit"] {
@@ -75,21 +69,10 @@ button[type="submit"] {
   margin-bottom: 0;
   
 }
-
-/* Tricky! A Firefox bug makes our focus outlines disappear,
-  so we have to restore them ourselves. This focus outline is an
-  a11y MUST for keyboard users! Note that we are NOT expecting you 
-  to know this. You can read more about the issue & the fix at: 
-  
-  https://thinkful-ed.github.io/firefox-focus-bug-demo/
-  */
 input[type="email"]:focus,
 input[type="password"]:focus,
 button[type="submit"]:focus {
- /* Restore desirable focus behavior 
- in non-webkit browsers like Firefox */
  outline: auto 2px #87ceeb;
- /* Preseve default focus behavior in webkit browsers */
  outline: auto 5px -webkit-focus-ring-color;
  box-shadow: 0;
 }
